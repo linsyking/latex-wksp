@@ -1,0 +1,302 @@
+\section{Text}
+
+\subsection{Special Characters}
+
+\begin{frame}
+    \frametitle{Special Characters}
+    Some special symbols can't be directly used since they are reserved by \LaTeX:
+    \begin{center}
+        \begin{tabular}{llllll}
+            \LC|\#|               & \#                                                                                                                            \\
+            \samplesymbol{\#}{\#} & \samplesymbol{\$}{\$} & \samplesymbol{\%}{\%} & \samplesymbol{\&}{\&} & \samplesymbol{\~{}}{\~{}} & \samplesymbol{\`{}}{\`{}} \\
+            \samplesymbol{\{}{\{} & \samplesymbol{\}}{\}} & \samplesymbol{\_}{\_} &
+            \multicolumn{2}{l}{\samplesymbol{textbackslash}{\textbackslash}}
+        \end{tabular}
+    \end{center}
+    Many \LaTeX\ starters are confused with how to correctly print quotes, hyphens and dots.\\
+    \`{} prints a left single quote, ' prints a right single quote.\\
+    \`{}\`{} prints a left double quote, '' prints a right double quote.\\
+    one hyphen (-) print like - \\
+    two hyphens ({-}{-}) print like -- \\
+    three hyphens ({-}{-}{-}) print like ---\\
+    \samplecommand{dots} prints the dots with a correct format (\dots) instead of directly use three dots (...)
+\end{frame}
+
+\begin{frame}
+    \frametitle{Deal with unfamiliar symbols}
+    Sometimes you may want to deal with symbols you have never seen. In this case, you may refer to \url{http://detexify.kirelabs.org/classify.html} to find out how to output the character.
+\end{frame}
+
+\subsection{Fonts}
+
+\begin{frame}
+    \frametitle{Basic commands about fonts}
+    First, lets start with some commands that transform font types
+    \begin{itemize}
+        \item \sampletext{bf}{\bf}
+        \item \sampletext{it}{\it}
+        \item \sampletext{rm}{\rm}
+        \item \sampletext{sc}{\sc}
+        \item \sampletext{sf}{\sf}
+        \item \sampletext{sl}{\sl}
+        \item \sampletext{tt}{\tt}
+    \end{itemize}
+    Note that the commands that transform font types influence the text in the whole scope (\structure{\{...\}}) until another font type is specified. For example, how to use the first command \samplecommand{bf} is shown below\\[0.5em]
+    \{\samplecommand{bf} Sample Text\}
+\end{frame}
+
+\begin{frame}[fragile]
+    Sometimes we don't want to transform  all the font types, instead, we can only change the font type of some specified text.
+    \begin{example}
+        \begin{minted}{latex}
+\textbf{Sample text}
+		\end{minted}
+    \end{example}
+    There are more options for fonts.
+    \begin{itemize}
+        \item \sampletext{textit}{\textit}
+        \item \sampletext{textsc}{\textsc}
+    \end{itemize}
+    However, in a math environment (will be introduced later), some other commands should be used
+    \begin{itemize}
+        \item \samplecommand{mathbf} - $\mathbf{Sample\ Text}$
+        \item \samplecommand{mathit} - $\mathit{Sample\ Text}$
+        \item \samplecommand{mathsf} - $\mathsf{Sample\ Text}$
+    \end{itemize}
+    Note that the math environment doesn't include all of the font types on the previous page. More information about font types can be found \href{http://www.cnblogs.com/make217/p/6123532.html}{\color{blue}\underline{here}}.
+\end{frame}
+
+\begin{frame}
+    Font size can also be easily modified
+    \begin{itemize}
+        \item \sampletext{tiny}{\tiny}
+        \item \sampletext{scriptsize}{\scriptsize}
+        \item \sampletext{footnotesize}{\footnotesize}
+        \item \sampletext{small}{\small}
+        \item \sampletext{normalsize}{\normalsize}
+        \item \sampletext{large}{\large}
+        \item \sampletext{Large}{\Large}
+        \item \sampletext{LARGE}{\LARGE}
+        \item \sampletext{huge}{\huge}
+        \item \sampletext{Huge}{\Huge}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Build a colorful document}
+    Changing the color is similar to changing font types. \medskip
+
+    If you want to transform to a color (like transforming to bold with \LC{\bf}), you can use \LC{\color{name}}. \smallskip
+
+    Similarly, you can use \LC{\textcolor{name}} like \LC{\textbf}.\smallskip
+
+    The background color of the whole page can be set using \LC{\pagecolor{name}}.\medskip
+
+    There are some defined color \structure{name} in the \structure{xcolor} package.\medskip
+
+    \begin{tabular}{lllll}
+        \samplecolorbox{black}  & \samplecolorbox{gray}     & \samplecolorbox{olive}   & \samplecolorbox{teal}  & \samplecolorbox{blue}      \\
+        \samplecolorbox{green}  & \samplecolorbox{orange}   & \samplecolorbox{violet}  & \samplecolorbox{brown} & \samplecolorbox{lightgray} \\
+        \samplecolorbox{pink}   & \samplecolorbox{white}    & \samplecolorbox{cyan}    & \samplecolorbox{lime}  & \samplecolorbox{purple}    \\
+        \samplecolorbox{yellow} & \samplecolorbox{darkgray} & \samplecolorbox{magenta} & \samplecolorbox{red}                                \\
+    \end{tabular}
+    \medskip
+
+    You can find more information in the documentation of \structure{xcolor} (\alert{texdoc} \structure{xcolor})
+\end{frame}
+
+\subsection{Underline}
+
+\begin{frame}[fragile]
+    \frametitle{Ulem package}
+    If you want to add some lines on the text, use the \structure{ulem} package.
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage{ulem}
+\uline{Sample Text}
+		\end{minted}
+    \end{command}
+    There are different kinds of lines supported:
+    \begin{itemize}
+        \item \sampletext{uline}{\uline}
+        \item \sampletext{uuline}{\uuline}
+        \item \sampletext{uwave}{\uwave}
+        \item \sampletext{sout}{\sout}
+        \item \sampletext{xout}{\xout}
+        \item \sampletext{dashuline}{\dashuline}
+        \item \sampletext{dotuline}{\dotuline}
+    \end{itemize}
+\end{frame}
+
+\subsection{Enumeration}
+\begin{frame}[fragile]
+    \frametitle{Enumerate}
+    When you need to enumerate some items as a list, you may use the \structure{enumerate} package.
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage{enumerate}
+\begin{enumerate}[style]
+\item % ...
+\item % ...
+\item % ...
+\end{enumerate}
+		\end{minted}
+    \end{command}
+    This will generate a normal list with the serial numbers in the specified \structure{style}, which could be the following (as example)
+    \begin{itemize}
+        \item \alert{1} - 1, 2, 3, 4, ...
+        \item \alert{(i)} - (i), (ii), (iii), (iv), ...
+        \item \alert{[1.]} - [1.], [2.], [3.], [4.], ...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Itemize}
+    If you want to generate an unordered list, use \structure{itemize} instead of \structure{enumerate}.
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage{enumerate}
+\begin{itemize}
+\item[style] % ...
+\item[style] % ...
+\item[style] % ...
+\end{itemize}
+		\end{minted}
+    \end{command}
+    In this case, \structure{style} must be added after each item, which is different from that in \structure{enumerate}, and the symbol displayed in the beginning of each item will be exactly same as the \structure{style}. If \structure{style} is not added, a default style will be used.
+\end{frame}
+
+\subsection{Alignment}
+
+\begin{frame}[fragile]
+    \frametitle{Alignment}
+    If you want to align a paragraph of text, use these three environments for left/center/right align.
+    \begin{command}
+        \begin{minted}{latex}
+\begin{flushleft/center/flushright}
+% ...
+\end{flushleft/center/flushright}
+			\end{minted}
+    \end{command}
+    However, if only a single line needs to be aligned, use these three commands.
+    \begin{command}
+        \begin{minted}{latex}
+\leftline{text}
+\centerline{text}
+\rightline{text}
+		\end{minted}
+    \end{command}
+\end{frame}
+
+\subsection{Spaces, lines and pages}
+
+\begin{frame}
+    \frametitle{Spaces may be confusing}
+    There are defined command of spaces in different width and usages.
+    \begin{itemize}
+        \item \colorbox{yellow}{\ } - the basic space in \LaTeX\ (printed in yellow since it's transparent). Note that any number of spaces or tabs is equal to one space, and the space after a command is ignored. If you want to add an extra space, use \alert{\textbackslash}\colorbox{yellow}{\ } which makes a 1/3\,em space (1 em is approximately the width of an \structure{M} in the current font)
+        \item \~{} - If two words can't be separated on two lines, you can tell \LaTeX\ about it using a tie (\~{}), such as Prof.\~{}Hamade (Prof.~Hamade).
+        \item  \samplecommand{,} - makes a 1/6\,em space, commonly used before units (notice the space before em on this page)
+        \item  \samplecommand{;} - makes a 2/7\,em space
+        \item  \samplecommand{quad} - makes a 1\,em space
+        \item  \samplecommand{qquad} - makes a 2\,em space
+        \item  \samplecommand{phantom}\{\structure{text}\} - makes actually the space of \structure{text}, but \structure{text} will be invisible.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Separate contents into lines and pages}
+    Here are some basic commands about lines and pages in \LaTeX,  you will use them everywhere.
+    \begin{itemize}
+        \item \samplecommand{newline} - begin a new line
+        \item \alert{\textbackslash\textbackslash} - begin a new line (not recommended\footnotemark[1])
+        \item \samplecommand{par} - begin a new paragraph (a new line with indent)
+        \item \alert{\textbackslash\textbackslash [}\structure{offset}\alert{]} - begin a new line with an vertical offset, \structure{offset} is the size of needed space  (not recommended, using  \LC{\vspace} instead.)
+              %\item \samplecommand{linebreak} - begin a new line with the words discrete
+        \item \samplecommand{newpage} - begin a new page
+        \item \alert{\%} - begin a line comment
+    \end{itemize}
+    \footnotetext[1]{According to Manuel Charlemagne, \alert{\textbackslash\textbackslash} should only be used for a force break (where \samplecommand{newline} doesn't work).}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Spacing}
+    When trying to separate two paragraphs by a certain space, many new learners of \LaTeX\ may use multiple empty lines and linebreaks, which is a very dirty fix and is not so accurate. Actually, \LaTeX\ provides a precise spacing mechanism.
+    \begin{command}
+        \LC{\vspace{space}}\\
+        \LC{\vspace*{space}}
+    \end{command}
+    When trying to show the next paragraph or sentence precisely at the bottom of the current page, we can use
+    \begin{command}
+        \LC{\vfill}
+    \end{command}
+    between the contents of two paragraphs to separate them.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Predefined skipping}
+
+    More often\footnotemark[1], we don't need to think about the skipping space, we can use the predefined skipping commands to achieve a small, medium or big skip. They are actually particular cases of \LC{\vspace}
+
+    \begin{command}
+        \LC{\smallskip}\smallskip
+
+        \LC{\medskip}\medskip
+
+        \LC{\bigskip}\bigskip
+    \end{command}
+
+    You may note that the effects are these skipping commands have been already shown above.
+    \footnotetext[1]{According to Manuel Charlemagne, you should always use these skipping commands if possible instead of using \alert{\textbackslash\textbackslash} (as in many online tutorials).}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Spacing units}
+    The \structure{space} can be anything representing a size, such as \structure{1cm}, \structure{2em} and \structure{10pt}. In \LaTeX, spacing units can be
+    \begin{itemize}
+        \item \structure{cm}
+        \item \structure{mm}
+        \item \structure{in} - inch, 1 inch = 2.54 cm
+        \item \structure{pt} - 72 pt = 1 inch, the smallest unit in \LaTeX
+        \item \structure{em} - 1em equals to the width of letter M
+        \item \structure{ex} - 1ex equals to the width of letter x
+        \item \LC{\linewidth} - the width of current line in the container
+        \item \LC{\pagewidth} - the width of the page
+        \item \LC{\pageheight} - the height of the page
+        \item \LC{\textwidth} - the normal width of text on the page
+        \item \LC{\textheight} - the normal height of text on the page
+    \end{itemize}
+\end{frame}
+
+\subsection{Minipage and Multicolumn}
+
+\begin{frame}[fragile]
+    \frametitle{Minipage}
+    \structure{minipage} is a very useful environment for dividing pages into a grid.
+    \begin{example}
+        \begin{multicols}{2}
+            \inputminted[xleftmargin=1.5em]{latex}{../text/minipage.tex}
+        \end{multicols}
+    \end{example}
+\end{frame}
+
+\begin{frame}
+    The code above generate six minipages in a grid of 3 columns $\times$ 2 rows. Don't try to add up the width of minipages in a line for more than about \LC{0.98\linewidth} (since a minipage have a small margin on each side), or the last minipage may be on a new line. \\[0.5em]
+    For each minipage, it can be seem as an independent \LaTeX\ document, where text, formulas, graphics, tables and etc. can be inserted, and most importantly, they won't affect each other. What's more, you can even use minipages in a minipage to form a multi-level nesting. \\
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{The multicol package}
+    When typesetting contents with small line width and many lines (for example, source code), the \structure{multicol} package is recommended.
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage{multicol}
+\begin{multicols}{cols}
+    % contents on column one
+    \breakcolumn % break the current column here
+    % contents on column two
+\end{multicols}
+		\end{minted}
+    \end{command}
+    Here \structure{cols} is the number of columns, it must be specified. If \LC{\breakcolumn} is not used, the \structure{multicol} package will automatically balance the length of each column.
+\end{frame}

@@ -1,0 +1,77 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{bookmark}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ulem}
+\usepackage{systeme}
+\usepackage{longtable}
+\usepackage{newverbs}
+\usepackage{xurl}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usemintedstyle{autumn}
+\setminted{
+    breaklines,
+    fontsize=\footnotesize,
+    tabsize=4,
+    xleftmargin=2em
+}
+\setmintedinline{
+	fontsize=\footnotesize
+}
+\newmintinline[LC]{latex}{}
+\newmintinline[LCS]{latex}{fontsize=\scriptsize}
+\newminted[LCL]{latex}{}
+\newcommand{\LCX}[1]{$#1$ & \LC|#1|}
+\newverbcommand{\LCXV}%
+{\VerbatimOut{\jobname.tmp}}%
+{\endVerbatimOut%
+1 & 1}
+
+\floatstyle{ruled}
+\newfloat{program}{thp}{lop}
+\floatname{program}{Program}
+
+\newenvironment{command}{\begin{block}{Command}}{\end{block}}
+\newcommand{\samplebegin}[1]{\structure{\textbackslash begin}\{#1\}}
+\newcommand{\sampleend}[1]{\structure{\textbackslash end}\{#1\}}
+\newcommand{\samplecommand}[1]{\alert{\textbackslash #1}}
+\newcommand{\samplecolorbox}[1]{\fcolorbox{black}{#1}{\color{#1}{\tiny{\phantom{0000}}}} \small{#1}}
+\newcommand{\sampletext}[2]{\samplecommand{#1} - {#2{Sample Text}}}
+\newcommand{\sampleaccent}[3]{\samplecommand{#1}\{#3\}\quad #2{#3}}
+\newcommand{\samplesymbol}[2]{\samplecommand{#1}\quad #2}
+\newcommand{\urllink}[1]{\href{#1}{\beamergotobutton{Link}}}
+\newcommand{\packagename}[1]{\structure{\texttt{#1}}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[sections numbered]
+
+\hypersetup{colorlinks=true,linkcolor=purple,filecolor=magenta,urlcolor=purple}
+
+\urlstyle{same}
+
+\title{Practical \LaTeX\ Workshop}
+\author{\hyperlink{https://github.com/linsyking}{Y. Xiang}, \hyperlink{}{B. Liu}, \hyperlink{https://github.com/fakefred}{Y. Yin} \hyperlink{https://github.com/zzjc1234}{J. ZhouZhao}}
+\institute{TechJI}
+\date{2023}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+\input{../intro/main}
+\input{../text/main}
+
+\end{document}
