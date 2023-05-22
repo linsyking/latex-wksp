@@ -183,7 +183,7 @@ This will generate a simple graph which consists of eight nodes:
 \input{../graphic/relation.tex}
 \end{center}
 
-There may be a lecture about \packagename{tikz} and \packagename{pgf} in the future. If you are now interested in it, please refer to the \structure{pgf manual} by \mintinline{shell}|texdoc tikz| or \mintinline{shell}|texdoc pgf|.
+Later we will have an introduction to \packagename{tikz} and \packagename{pgf}. If you are interested in it, please refer to the \structure{pgf manual} by \mintinline{shell}|texdoc tikz| or \mintinline{shell}|texdoc pgf|.
 
 \end{frame}
 
@@ -498,66 +498,4 @@ The \packagename{position}, \packagename{caption}, \packagename{label} are same 
 	
 Usually you don't need to pay too much attention about where the figures and tables are exactly are because you can use \LC|\ref| to reference them. And the numbering of 	figures and tables will strictly follow the order of their code.
 	
-\end{frame}
-
-\begin{frame}[fragile]{\packagename{figure} and \packagename{table} in Two-column Documents}
-If you are writing a document using two columns (i.e. you started your document with something like \LC|\documentclass[twocolumn]{article}|), you might have noticed that you can't use floating elements that are wider than the width of a column (using a \LaTeX\ notation, wider than \LC|0.5\textwidth|), otherwise you will see the figure or table overlapping with text. \medskip
-
-If you really have to use such wide elements, the only solution is to use the ``starred'' variants of the floating environments:
-
-\begin{command}
-\begin{LCL}
-\begin{figure*}[position]
-  ...
-\end{figure*}
-\end{LCL}
-\begin{LCL}
-\begin{table*}[position]
-  ...
-\end{table*}
-\end{LCL}
-\end{command}
-
-Those ``starred'' versions work like the standard ones, but they will be as wide as the page, so you will get no overlapping.
-
-\end{frame}
-
-\begin{frame}[fragile]{The \packagename{array} Environment}
-
-	When you use \packagename{tabular} in maths environment, the text format in the \packagename{tabular} won't be italic. However, there is a replacement of \packagename{tabular}, which is the \packagename{array} environment.
-	
-\begin{command}
-\begin{LCL}
-\begin{array}{format}
-  ...
-\end{array}
-\end{LCL}
-\end{command}
-
-The options and usages of these two environment are exactly the same. \medskip
-
-Though the environment is not provided by the \packagename{array} package (it's built-in one), you are also recommended to use this package for enhancements.
-	
-\end{frame}
-
-\begin{frame}[fragile]{List of Floats}
-The figures and tables are all called floats. Captions can be listed at the beginning of a paper or report in a ``List of Figures'' or a ``List of Tables'' section with the commands:
-
-\begin{command}
-\begin{LCL}
-\listoffigures
-\listoftables
-\end{LCL}
-\end{command}
-
-The caption used for each figure will appear in these lists, along with the figure numbers, and page numbers that they appear on. \medskip
-
-The \LC|\caption| command also has an optional parameter, which is used for the List of Tables or List of Figures.  
-
-\begin{command}
-\LC|\caption[short]{long}|
-\end{command}
-
-Typically the \packagename{short} description is for the caption listing, and the \packagename{long} description will be placed beside the figure or table.
-
 \end{frame}
