@@ -6,8 +6,16 @@
 \usepackage{bookmark}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsfonts} % loads maths fonts
 \usepackage{geometry}
+\usepackage{esint}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{subcaption}
 \usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{array}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{ulem}
@@ -16,7 +24,6 @@
 \usepackage{newverbs}
 \usepackage{xurl}
 \usepackage{listings}
-\usepackage{algpseudocode}
 \usepackage{float}
 \usemintedstyle{autumn}
 \setminted{
@@ -36,11 +43,12 @@
 {\VerbatimOut{\jobname.tmp}}%
 {\endVerbatimOut%
 1 & 1}
-
+\DeclareMathOperator{\Mr}{M_{\mathbb{R}}}
 \floatstyle{ruled}
 \newfloat{program}{thp}{lop}
 \floatname{program}{Program}
 
+\newenvironment{latexexample}{\begin{example}}{\end{example}}
 \newenvironment{command}{\begin{block}{Command}}{\end{block}}
 \newcommand{\samplebegin}[1]{\structure{\textbackslash begin}\{#1\}}
 \newcommand{\sampleend}[1]{\structure{\textbackslash end}\{#1\}}
@@ -51,6 +59,39 @@
 \newcommand{\samplesymbol}[2]{\samplecommand{#1}\quad #2}
 \newcommand{\urllink}[1]{\href{#1}{\beamergotobutton{Link}}}
 \newcommand{\packagename}[1]{\structure{\texttt{#1}}}
+
+\newenvironment{latexexampleframe}
+{\VerbatimOut{\jobname.tmp}}
+{\endVerbatimOut
+
+\begin{frame}
+\begin{example}
+\inputminted{latex}{./\jobname.tmp}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\input{./\jobname.tmp}
+\end{frame}
+}
+
+\newenvironment{latexexamplesplit}
+{\VerbatimOut{\jobname.tmp}}
+{\endVerbatimOut
+
+\begin{example}
+\begin{minipage}{0.48\textwidth}
+~
+\inputminted{latex}{./\jobname.tmp}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\input{./\jobname.tmp}
+\end{minipage}
+\end{example}
+}
+
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{section in toc}[sections numbered]
 
@@ -59,7 +100,7 @@
 \urlstyle{same}
 
 \title{Practical \LaTeX\ Workshop}
-\author{\hyperlink{https://github.com/linsyking}{Y. Xiang}, \hyperlink{}{B. Liu}, \hyperlink{https://github.com/fakefred}{Y. Yin} \hyperlink{https://github.com/zzjc1234}{J. ZhouZhao}}
+\author{\hyperlink{https://github.com/linsyking}{Y. Xiang}, \hyperlink{}{B. Liu}, \hyperlink{https://github.com/fakefred}{Y. Yin}}
 \institute{TechJI}
 \date{2023}
 \begin{document}
@@ -73,5 +114,7 @@
 \end{frame}
 \input{../intro/main}
 \input{../text/main}
+\input{../math/main}
+\input{../graphic/main}
 
 \end{document}

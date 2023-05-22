@@ -10,7 +10,7 @@
             \LC|\#|               & \#                                                                                                                            \\
             \samplesymbol{\#}{\#} & \samplesymbol{\$}{\$} & \samplesymbol{\%}{\%} & \samplesymbol{\&}{\&} & \samplesymbol{\~{}}{\~{}} & \samplesymbol{\`{}}{\`{}} \\
             \samplesymbol{\{}{\{} & \samplesymbol{\}}{\}} & \samplesymbol{\_}{\_} &
-            \multicolumn{2}{l}{\samplesymbol{textbackslash}{\textbackslash}}
+            \multicolumn{2}{l}{\samplesymbol{backslash}{$\backslash$}}
         \end{tabular}
     \end{center}
     Many \LaTeX\ starters are confused with how to correctly print quotes, hyphens and dots.\\
@@ -128,6 +128,26 @@
     \end{itemize}
 \end{frame}
 
+\subsection{Highlight and Under/Upper Braces}
+
+\begin{frame}[fragile]{Highlight, Under/Upper Braces}
+    Use the \structure{soul} package to highlight text:
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage{soul}
+\hl{Sample Text}
+		\end{minted}
+    \end{command}
+    \medskip
+    Use \structure{\textbackslash overbrace/\textbackslash underbrace} to add text over/below text with braces.
+    \begin{latexexamplesplit}
+        \begin{gather*}
+            \overbrace{Hello World}^{Good}\\
+            \underbrace{Hello World}_{Good}
+        \end{gather*}
+    \end{latexexamplesplit}
+\end{frame}
+
 \subsection{Enumeration}
 \begin{frame}[fragile]
     \frametitle{Enumerate}
@@ -155,7 +175,6 @@
     If you want to generate an unordered list, use \structure{itemize} instead of \structure{enumerate}.
     \begin{command}
         \begin{minted}{latex}
-\usepackage{enumerate}
 \begin{itemize}
 \item[style] % ...
 \item[style] % ...
@@ -194,7 +213,7 @@
     \frametitle{Spaces may be confusing}
     There are defined command of spaces in different width and usages.
     \begin{itemize}
-        \item \colorbox{yellow}{\ } - the basic space in \LaTeX\ (printed in yellow since it's transparent). Note that any number of spaces or tabs is equal to one space, and the space after a command is ignored. If you want to add an extra space, use \alert{\textbackslash}\colorbox{yellow}{\ } which makes a 1/3\,em space (1 em is approximately the width of an \structure{M} in the current font)
+        \item \textvisiblespace\ - the basic space in \LaTeX\. Note that any number of spaces or tabs is equal to one space, and the space after a command is ignored. If you want to add an extra space, use \alert{\textbackslash\textvisiblespace\ } which makes a 1/3\,em space (1 em is approximately the width of an \structure{M} in the current font)
         \item \~{} - If two words can't be separated on two lines, you can tell \LaTeX\ about it using a tie (\~{}), such as Prof.\~{}Hamade (Prof.~Hamade).
         \item  \samplecommand{,} - makes a 1/6\,em space, commonly used before units (notice the space before em on this page)
         \item  \samplecommand{;} - makes a 2/7\,em space
