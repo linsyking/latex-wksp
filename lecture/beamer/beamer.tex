@@ -175,7 +175,7 @@ Or alternatively
             \item \tt{c} --- center
             \item \tt{t} --- top
             \item \tt{T} --- different top
-                \footnote{See section 12.7 of \tt{beamer} docs.}
+                \footnote[frame]{See section 12.7 of \tt{beamer} docs.}
             \item \tt{b} --- bottom
         \end{itemize}
     \end{column}
@@ -406,13 +406,23 @@ Works as you would expect in an article, except:
         \end{block}
     \end{column}
 \end{columns}
-\tt{rm} = Roman; \tt{sf} = sans-serif
+\tt{rm} = \textrm{Roman}; \tt{sf} = \textsf{sans-serif}
 \begin{block}{Dirty hack}
     Too many \verb|\mathrm|s to replace? Try
 \begin{lstlisting}
 \renewcommand{\mathrm}{\mathsf}
 \end{lstlisting}
 \end{block}
+\end{fragileframe}
+
+\begin{fragileframe}{Fragile frames}
+If you include code, you have to tell \tt{beamer} that this frame is
+``fragile''.
+\begin{lstlisting}
+\begin{frame}[fragile]
+    % Content that contains code
+\end{frame}
+\end{lstlisting}
 \end{fragileframe}
 
 \begin{fragileframe}{Remove navigation symbols}
@@ -431,6 +441,21 @@ Why?
     \item Have you ever \textit{used} it?
 \end{itemize}
 \end{fragileframe}
+
+\begin{frame}{Further reading / References}
+\begin{itemize}
+    \item The \tt{beamer} user guide:
+        \url{http://mirrors.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}
+    \begin{itemize}
+        \item Multicolumn: \S 12.7
+        \item Sections: \S 10.2
+        \item Blocks: \S 12.3
+        \item Overlays: \S 9
+    \end{itemize}
+    \item \LaTeX\ workshop by Liu Yihao:
+        \url{https://github.com/SJTU-UMJI-Tech/LaTeX/blob/master/build/c5_beamer.pdf}
+\end{itemize}
+\end{frame}
 
 \begin{frame}
 \Huge{Thanks!}
