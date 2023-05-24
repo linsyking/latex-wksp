@@ -16,9 +16,9 @@ Meaning the next equation has no integer solutions:
 \begin{frame}[fragile]{Subscripts and Superscripts}
 The use of superscripts and subscripts is very common in mathematical expressions involving exponents, indexes, and in some special operators. \footnote[1]{Some of this part is ported from the tutorial of Overleaf: \urllink{https://www.overleaf.com/learn/latex/Subscripts_and_superscripts}}
 
-\begin{latexexample}
+\begin{latexexamplesplit}
 \[ a_1^2 + a_2^2 = a_3^2 \]
-\end{latexexample}
+\end{latexexamplesplit}
 
 Note that here we use \LC|\[| and \LC|\]| to typeset a mathematical expression. You may see many people (including myself in the past) using a pair of \LC|$$| instead. It is a plain-\TeX\ command, and is nowadays heavily deprecated. See this discussion \urllink{https://tex.stackexchange.com/questions/503/why-is-preferable-to} on Stack Exchange for more information. 
 
@@ -28,12 +28,12 @@ Note that here we use \LC|\[| and \LC|\]| to typeset a mathematical expression. 
 
 If the expression contains long superscripts or subscripts, these need to be collected in braces, as \LaTeX normally applies the mathematical commands \LC{^} and \LC{_} only to the following character:
 
-\begin{latexexample}
+\begin{latexexamplesplit}
 \[ x^{2 \alpha} - 1 = y_{ij} + y_{ij}  \]
 \[ (a^n)^{r+s} = a^{nr+ns}  \]
 \[ x^abc, \quad x_abc, \quad x^abc_abc \]
 \[ x^{abc}, \quad x_{abc}, \quad x^{abc}_{abc} \]
-\end{latexexample}
+\end{latexexamplesplit}
 
 \end{frame}
 
@@ -61,15 +61,15 @@ Ceil brackets & \LCX{\lceil x+y \rceil} \\
 \begin{frame}[fragile]
 The size of brackets and parentheses can be manually set, or they can be resized dynamically in your document, as shown in the next example:
 
-\begin{latexexample}
+\begin{latexexamplesplit}
 \[ F = G \left( \frac{m_1 m_2}{r^2} \right) \]
-\end{latexexample}
+\end{latexexamplesplit}
 
 Notice that to insert the parentheses or brackets, the \LC{\left} and \LC{\right} commands are used. Even if you are using only one bracket, both commands are mandatory, you can use invisible brackets \LC{\left.} or \LC{\right.} for this.
 
-\begin{latexexample}
+\begin{latexexamplesplit}
 \[ \int_a^b x^2 {\sf d} x = \left. \frac{1}{3}x^3 \right|_a^b \]
-\end{latexexample}
+\end{latexexamplesplit}
 
 \end{frame}
 
@@ -308,21 +308,6 @@ Here, the first column is left-aligned, the last column is right-aligned and the
 
 \end{frame}
 
-\begin{frame}[fragile]{The \packagename{flalign} Environment}
-For equations aligned left, use the \packagename{flalign} environment. It is similar to the \packagename{align} environment.
-
-\begin{latexexample}
-\begin{flalign}
-  a+b &=1=& b+a \\
-  b   &=2=& c
-\end{flalign}
-\end{latexexample}
-
-You may notice that the columns are flushed left (start from the left most position) and the right most column is flushed right, different from the \packagename{align} environment.
-
-\end{frame}
-
-
 \subsection{Spacing in Math Mode}
 
 \begin{frame}[fragile]{Horizontal Spacing}
@@ -395,9 +380,6 @@ your body paragraph is supposed to be typed here
 
 \end{frame}
 
-
-
-
 \subsection{Basic Math Commands}
 
 \begin{frame}[fragile]{Fractions and Binomials}
@@ -453,11 +435,11 @@ Characters in mathematical mode are usually shown in italics, but sometimes espe
 
 Trigonometrical functions, logarithms, and some others can be written in a document by means of some special commands. 
 
-\begin{latexexample}
+\begin{latexexamplesplit}
 \[ \sin(a + b ) = \sin(a)\cos(b) + \cos(a)\sin(b) \]
 \[ \log_a b = \frac{\log_c b}{\log_c a} = \frac{\ln b}{\ln a} \]
 \[ \tan a,\quad \arccos a,\quad \arcsin a,\quad \arctan a \]
-\end{latexexample}
+\end{latexexamplesplit}
 
 \end{frame}
 
