@@ -170,15 +170,6 @@ The references of subfigures can be used by their \LC|\label| as well. For examp
 
 The \packagename{tikz} and \packagename{pgf} packages can help you draw graphs in \LaTeX\, for example:
 
-\begin{example}
-\inputminted{latex}{../graphic/relation.tex}
-\end{example}
-
-\end{frame}
-
-\begin{frame}
-
-This will generate a simple graph which consists of eight nodes:
 \begin{center}
 \input{../graphic/relation.tex}
 \end{center}
@@ -187,55 +178,52 @@ Later we will have an introduction to \packagename{tikz} and \packagename{pgf}. 
 
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}{Another example}
 
-\begin{example}
-\inputminted[firstline=1,lastline=21]{latex}{../graphic/binary_tree.tex}
-\end{example}
-
-\end{frame}
-
-\begin{frame}
-
-\begin{exampleblock}{}
-\inputminted[firstline=22]{latex}{../graphic/binary_tree.tex}
-\end{exampleblock}
-
-This will generate a binary tree:
+Binary tree:
 \begin{center}
 \input{../graphic/binary_tree.tex}
 \end{center}
 
 \end{frame}
 
-
 \section{Tables}
 
 \subsection{Tabulars}
 
 \begin{frame}[fragile]{The \packagename{tabular} Environment}
-	Table is another common element in \LaTeX, usually you will need the \packagename{array} package for enhanced functions of tables. You can insert the command in the preamble of your document.
+	Table is another common element in \LaTeX, usually you will need the \packagename{booktabs, multirow} packages for enhanced functions of tables. You can insert the command in the preamble of your document.
 
 \begin{command}
-\LC|\usepackage{array}|
+\LC|\usepackage{booktabs, multirow}|
 \end{command}
 
 \begin{latexexamplesplit}
-\begin{tabular}{|l|c|r|}
-  \hline
+\begin{tabular}{lcr}
+  \toprule
   Title 1 & Title 2 & Title 3 \\
-  \hline
+  \midrule
   1 & 2 & 3 \\
-  \hline
+  \bottomrule
 \end{tabular}
 \end{latexexamplesplit}
 
-The syntax is similar to the \packagename{align} environment in maths. \LC|&| is used to split the columns are \LC|\\| is used to split the rows. \medskip
-
-%\LC|\hline| is used to draw the horizontal lines in the table.
-
+The syntax is similar to the \packagename{align} environment in maths. \LC|&| is used to split the columns are \LC|\\| is used to split the rows.
 
 \end{frame}
+
+\begin{frame}{Warning}
+  \begin{warning}
+      Never, ever use vertical lines in tables.
+      
+      Never use double rules in tables.
+  \end{warning}
+  \medskip
+  They are not professional!
+  
+  Please read \urllink{http://mirrors.ctan.org/macros/latex/contrib/booktabs/booktabs.pdf} for instructions on designing professional tables.
+\end{frame}
+
 
 \begin{frame}[fragile]{Column Format}
 
@@ -249,7 +237,7 @@ The syntax is similar to the \packagename{align} environment in maths. \LC|&| is
 
 	\packagename{format} can be set as follow:
 	\begin{itemize}
-		\item \packagename{|} - represents a vertical separate line between two columns
+		\item \packagename{|} - vertical line (not recommended)
 		\item \packagename{l} - align left in this column
 		\item \packagename{c} - align center in this column
 		\item \packagename{r} - align right in this column
@@ -257,128 +245,29 @@ The syntax is similar to the \packagename{align} environment in maths. \LC|&| is
 	\begin{example}
 		\begin{minipage}{0.48\linewidth}
 			\centering
-			\packagename{|l|l|l|} \medskip
+			\packagename{lll} \medskip
 			
-        	\begin{tabular}{|l|l|l|}
-        		\hline
+        	\begin{tabular}{lll}
+        		\toprule
         		Title 1 & Title 2 & Title 3 \\
-        		\hline
+        		\midrule
         		1 & 2 &3 \\
-        		\hline
+        		\bottomrule
         	\end{tabular}
 		\end{minipage}
 		\begin{minipage}{0.48\linewidth}
 			\centering
-			\packagename{||c|cc||} \medskip
+			\packagename{c|cc} \medskip
 			
-        	\begin{tabular}{||c|cc||}
-        		\hline
+        	\begin{tabular}{c|cc}
+        		\toprule
         		Title 1 & Title 2 & Title 3 \\
-        		\hline
+        		\midrule
         		1 & 2 &3 \\
-        		\hline
+        		\bottomrule
         	\end{tabular}
 		\end{minipage}
     \end{example}	
-\end{frame}
-
-\begin{frame}[fragile]
-
-With the help of the \packagename{array} package, more formats are available:
-
-\begin{itemize}
-		\item \packagename{p\{width\}} - Equivalent to \LC|\parbox[t]{width}|, vertically aligned \alert{bottom}
-		\item \packagename{b\{width\}} - Equivalent to \LC|\parbox[b]{width}|, vertically aligned \alert{top}
-		\item \packagename{m\{width\}} - Equivalent to \LC|\parbox{width}|, vertically aligned middle
-		\item \packagename{>\{decl.\}} - Can be used before a letter option, inserts \packagename{decl} before the column.
-		\item \packagename{<\{decl.\}} - Can be used after a letter option, inserts \packagename{decl} after the column.
-\end{itemize}
-
-\packagename{t} and \packagename{b} may be very confusing, but that's how they work in \LC|\parbox|. With these new formats, the columns can be defined more flexibly.
-
-\begin{latexexamplesplit}
-\begin{tabular}
-{|p{1.2cm}|b{1.2cm}|m{1.2cm}|}
-  \hline
-  Aligned Bottom & Aligned Top & 
-  Aligned Middle \\
-  \hline
-  1 & 2 & 3 \\
-  \hline
-\end{tabular}
-\end{latexexamplesplit}
-
-\end{frame}
-
-\begin{frame}[fragile]
-
-\packagename{t}, \packagename{b} and \packagename{m} only affect the vertical alignment. If you want to control the width and make the text horizontally centered as well, you can use \LC|>{\centering}| to insert a \LC|\centering| before the text in that column. You can also insert \LC|>{$}| and \LC|<{$}| to generate a column in math mode.
-
-\begin{latexexamplesplit}
-\begin{tabular}{|>{\centering}m{2cm}|>{$}b{2cm}<{$}|}
-  \hline
-  Row of Text & 
-  \text{Row of Maths} \\
-  \hline
-  First & x \\
-  Second & x^2 \\
-  \hline
-\end{tabular}
-\end{latexexamplesplit}
-
-If a column type will be used many times, and also very long, you can define a new column type by yourselves. You can use 
-
-\begin{command}
-\LC|\newcolumntype{new type}{>{some declarations}{old type}<{some more declarations}}|
-\end{command}
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-
-If you want to repeat a format for multiple times, you can use \LC|*{num}{format}|. Here's an example of the usage of \LC|\newcolumntype| with multiple columns form.
-
-\begin{latexexamplesplit}
-\newcolumntype{C}{>{$}c<{$}}
-\newcolumntype{L}{>{$}l<{$}}
-\newcolumntype{R}{>{$}r<{$}}
-
-\begin{tabular}{|L| *{2}{C|} R|}
-  \hline
-  \text{First} & \text{Second} & 
-  \text{Second} & \text{Third} \\
-  \hline
-  x & x^2 & x^2 & x^3 \\
-  \hline
-  y & y^2 & y^2 & y^3 \\
-  \hline
-\end{tabular}
-\end{latexexamplesplit}
-
-\end{frame}
-
-\begin{frame}[fragile]{Horizontal Lines}
-
-We usually need horizontal lines in tables. As shown in the examples above, you can add a \LC|\hline| at the beginning of a row. \medskip
-
-If you only want to draw a partial line, use \LC|\cline[start-end]|.
-
-\begin{latexexamplesplit}
-\begin{tabular}{c|l|c|r}
-  \hline\hline
-  & Title 1 & Title 2 & Title 3 \\
-  \cline{2-4}
-  Table & 1 & 2 & 3 \\
-  \cline{2-4}
-  & 4 & 5 & 6 \\
-  \hline\hline
-\end{tabular}
-\end{latexexamplesplit}
-
-
-Here we draw a table with a multirow, but it only works with multirows of odd row number. A more convenient method of drawing multirows will be introduced.
-
 \end{frame}
 
 \begin{frame}[fragile]{Combining Rows and Columns}
@@ -389,7 +278,7 @@ There are two commands being used to combine rows and columns
 
 \begin{itemize}
 	\item \packagename{ncols} - the number of columns to be merged
-	\item \packagename{format} - the format of the merged column, excluding the left \packagename{|} (eg. \packagename{c|})
+	\item \packagename{format} - the format of the merged column, excluding the left \packagename{|}
 	\item \packagename{text} - the text in the merged column
 \end{itemize}
 
@@ -408,50 +297,36 @@ To use the \LC|\multirow| command, you need to insert the package \packagename{m
 
 \end{frame}
 
+\begin{frame}[fragile]{Horizontal lines}
+  There are four commands to create a horizontal line in a table.
 
+  \begin{itemize}
+    \item \LC|\toprule| - Top line
+    \item \LC|\midrule| - Middle line
+    \item \LC|\cmidrule{2-3}| - Middle line that you can choose the columns to be drawn
+    \item \LC|\bottomrule| - Bottom line
+  \end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
 
 \begin{latexexample}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
-  \hline
+\begin{tabular}{ccccc}
+  \toprule
   \multirow{4}{*}{Table} & Title 1 & Title 2 & Title 3 & Title 4 \\
-  \cline{2-5}
-  & \multicolumn{2}{c|}{Text 1} & 
-  \multicolumn{2}{c|}{\multirow{3}{*}{Text 3}} \\
-  \cline{2-3}
-  & \multicolumn{2}{c|}{Text 2} & \multicolumn{2}{c|}{} \\
-  \cline{2-3}
-  & Text 4 & Text 5 & \multicolumn{2}{c|}{} \\
-  \hline
+  \cmidrule{2-5}
+  & \multicolumn{2}{c}{Text 1} & 
+  \multicolumn{2}{c}{\multirow{3}{*}{Text 3}} \\
+  \cmidrule{2-3}
+  & \multicolumn{2}{c}{Text 2} & \multicolumn{2}{c}{} \\
+  \cmidrule{2-3}
+  & Text 4 & Text 5 & \multicolumn{2}{c}{} \\
+  \bottomrule
 \end{tabular}
 \end{latexexample}
 
 Just leave blank in the rest rows of \LC|\multirow|.
-
-\end{frame}
-
-\begin{frame}[fragile]{Coloring Rows and Columns}
-
-The rows and columns can also be colored, with the \packagename{colortbl} package. You may also need the \packagename{xcolor} package to define new colors.
-\begin{command}
-\begin{LCL}
-\usepackage{xcolor}
-\usepackage{colortbl}
-\end{LCL}
-\end{command}
-
-Some commands are provided by these packages
-\begin{command}
-\begin{LCL}
-\definecolor{name}{system}{definition}
-\rowcolor{color}
-\columncolor{color}
-\end{LCL}
-\end{command}
-
-Here \packagename{system} can be \packagename{rgb/hsb/cmyk/gray}. Please refer the lecture about defining colors.
 
 \end{frame}
 
@@ -475,16 +350,17 @@ The \packagename{table} environment is used to arrange the place of a tabular, s
 \begin{LCL}
 \begin{table}[position]
   \centering
+  \caption{caption}
   \begin{tabular}{format}
     ...
   \end{tabular}
-  \caption{caption}
   \label{table:label}
 \end{table}
 \end{LCL}
 \end{command}
 
-The \packagename{position}, \packagename{caption}, \packagename{label} are same as those in the \packagename{figure} environment. 
+The \packagename{position}, \packagename{caption}, \packagename{label} are same as those in the \packagename{figure} environment.
+It's recommended to put the caption above the table.
 \end{frame}
 
 \begin{frame}[fragile]{Recall the Positions}

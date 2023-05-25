@@ -22,6 +22,12 @@
     \samplecommand{dots} prints the dots with a correct format (\dots) instead of directly use three dots (...)
 \end{frame}
 
+\begin{frame}{Warning}
+    \begin{warning}
+        Do NOT use {\tt "} and {\tt '} to print quotes.
+    \end{warning}
+\end{frame}
+
 \begin{frame}
     \frametitle{Deal with unfamiliar symbols}
     Sometimes you may want to deal with symbols you have never seen. In this case, you may refer to \url{http://detexify.kirelabs.org/classify.html} to find out how to output the character.
@@ -230,13 +236,17 @@
         \item \samplecommand{newline} - begin a new line
         \item \alert{\textbackslash\textbackslash} - begin a new line (not recommended\footnotemark[1])
         \item \samplecommand{par} - begin a new paragraph (a new line with indent)
-        \item \alert{\textbackslash\textbackslash [}\structure{offset}\alert{]} - begin a new line with an vertical offset, \structure{offset} is the size of needed space  (not recommended, using  \LC{\vspace} instead.)
-              %\item \samplecommand{linebreak} - begin a new line with the words discrete
         \item \samplecommand{newpage} - begin a new page
         \item \alert{\%} - begin a line comment
     \end{itemize}
     \footnotetext[1]{According to Manuel Charlemagne, \alert{\textbackslash\textbackslash} should only be used for a force break (where \samplecommand{newline} doesn't work).}
 \end{frame}
+
+\begin{frame}{Warning}
+    \begin{warning}
+        Never use \alert{\textbackslash\textbackslash} to create a new line in the text, it will lead to unexpected side effects.
+    \end{warning}
+  \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Spacing}

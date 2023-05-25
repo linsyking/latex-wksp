@@ -12,10 +12,10 @@
 \usepackage{systeme}
 \usepackage{tikz}
 \usepackage{pgf}
+\usepackage{booktabs}
 \usepackage{subcaption}
 \usepackage{enumerate}
 \usepackage{relsize}
-\usepackage{array}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{ulem}
@@ -48,6 +48,7 @@
 \newfloat{program}{thp}{lop}
 \floatname{program}{Program}
 
+\newenvironment{warning}{\begin{center}\begin{minipage}{\textwidth}\huge \bf \color{red}}{\end{minipage}\end{center}}
 \newenvironment{latexexample}{\begin{example}}{\end{example}}
 \newenvironment{command}{\begin{block}{Command}}{\end{block}}
 \newcommand{\samplebegin}[1]{\structure{\textbackslash begin}\{#1\}}
