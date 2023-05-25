@@ -382,6 +382,20 @@ How does \tt{<+->} work?
 \end{fragileframe}
 
 \section{Lifehacks}
+\begin{fragileframe}{Aspect ratio}
+Beamers are 4:3 by default. Switch to 16:9 with
+\begin{lstlisting}
+\documentclass[aspectratio=169]{beamer}
+\end{lstlisting}
+Page size (mm):
+\begin{itemize}
+    \item 4:3 --- 128$\times$96
+    \item 16:9 --- 160$\times$90
+\end{itemize}
+This means vertical content \textit{might} overflow.
+Better settle on an aspect ratio from the beginning.
+\end{fragileframe}
+
 \begin{fragileframe}{Formulas}
 Works as you would expect in an article, except:
 \begin{columns}
