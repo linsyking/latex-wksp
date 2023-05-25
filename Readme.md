@@ -23,5 +23,6 @@ Yihao Liu's [Great Latex Lecture](https://github.com/SJTU-UMJI-Tech/LaTeX).
 ## Contributors
 
 - [fakefred](https://github.com/fakefred)
+- [Hydraallen](https://github.com/Hydraallen)
 - [zzjc1234](https://github.com/zzjc1234)
 - [405-not-found](https://github.com/405-not-found)
