@@ -1,0 +1,159 @@
+\section{Basics}
+
+\subsection{Global Structure}
+
+\begin{frame}[fragile]{Global Structure}
+
+While in many cases you don't write \LaTeX documents from scratch (eg. using templates), you should still know the basic structure of a \LaTeX document (can help you fix bugs!).
+
+Every input file must contain the commands:
+
+\begin{command}
+\begin{minted}{latex}
+\documentclass{...}
+
+\begin{document}
+...
+\end{document}
+\end{minted}
+\end{command}
+The area between \LC|\documentclass{...}| and \LC|\begin{document}| is called the \textit{preamble}. It normally contains commands that affect the entire document.
+
+You would put your text where the dots are between \LC|\begin{document}| and \LC|\end{document}|.
+        
+\end{frame}
+
+\begin{frame}[fragile]{Document Class}
+    You need to set the layout standard for your document. This is done by specifying a \textit{document class}.
+    \begin{command}
+        \begin{minted}{latex}
+\documentclass[options]{class}
+        \end{minted}
+    \end{command}
+    \pause
+    For example, you can use \LC|\documentclass[11pt,twoside,a4paper]{article}| to initialize an article with a base font size of 11 points, and to produce a layout suitable for double sided printing on A4 paper.
+
+    \pause
+
+    You can see a list of document classes in \href{https://ctan.org/topic/class}{CTAN Class} and options in \href{https://en.wikibooks.org/wiki/LaTeX/Document_Structure}{Document Structure}.
+\end{frame}
+
+\begin{frame}[fragile]{Packages}
+    In the preamble area, you can load extra packages.
+
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage[options]{package}
+% or
+\usepackage{package1,package2}
+        \end{minted}
+    \end{command}
+    \pause
+    For example, if you want to have more detailed settings for the layout of your document, you can use the \textit{geometry} package.
+
+    \pause
+    
+    A simple example would be:
+
+    \begin{command}
+        \begin{minted}{latex}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
+        \end{minted}
+    \end{command}
+
+    This would set a new layout for A4 paper with 2.5cm margins on the left and right, and 2cm margins on the top and bottom of each page.
+
+    \pause
+
+    See \href{https://www.overleaf.com/learn/latex/Page_size_and_margins}{Page size and margins} for more details on page layout.
+\end{frame}
+
+\begin{frame}[fragile]{Top Matter}
+    At the beginning of most documents there will be information about the document itself, such as the title and date, and also information about the authors, such as name, address, email etc.
+
+    All of this type of information within \LaTeX is collectively referred to as \textit{top matter}.
+
+    \pause
+
+    \begin{command}
+        \begin{minted}{latex}
+...
+\begin{document}
+\title{LaTeX Document Sample}
+\author{Your name}
+\date{\today}
+\maketitle
+\tableofcontents
+\end{document}
+        \end{minted}
+    \end{command}
+
+    \pause
+    You need to use \LC|\maketitle| to generate the final title. If you omit the \LC|\date| command, \LaTeX will use today's date based on the typographic rules.
+
+    \pause
+    \LC|\tableofcontents| will generate a table of contents based on the sections of your document.
+\end{frame}
+
+\begin{frame}[fragile]{Document body}
+    In order for the table of contents to display something it is necessary to add different levels of headings.
+
+    \begin{command}
+        \begin{minted}{latex}
+...
+\begin{document}
+...
+
+\section{sec1}
+\subsection{sec1.1}
+\subsubsection{sec1.1.1}
+
+\section{sec2}
+\subsection{sec2.1}
+\subsubsection{sec2.1.1}
+\end{document}
+        \end{minted}
+    \end{command}
+    \pause
+    To hide the number, add * like \LC|\section*{sec3}|, but be aware that it will not be shown in the table of contents.
+\end{frame}
+
+\subsection{Modular Documents}
+
+\begin{frame}[fragile]{Multiple files}
+    \LaTeX allows you to split the content of your document into separate files. This is particularly useful if you want to create a book or a large report.
+
+    \pause
+
+    \begin{command}
+        \begin{minted}{latex}
+\documentclass{article}
+\begin{document}
+\input{titlepage}
+\input{introduction}
+\input{section1}
+\input{section2}
+\end{document}
+        \end{minted}
+    \end{command}
+
+    This file will input the contents of the files \textit{titlepage.tex}, \textit{introduction.tex}, \textit{section1.tex} and \textit{section2.tex} in that order. What it does is effectively copy and paste the contents of the files into the document in the order that they are listed.
+
+\end{frame}
+
+\begin{frame}[fragile]{Graphics Path}
+    When you want to include a figure from file, you normally write \LC|\includegraphics{figures/filename}|. However, if you have a lot of figures, you may want to put them in a separate folder. In this case, you can use \LC|\graphicspath| to specify the path to the folder.
+
+    \pause
+
+    Write the following commands in preamble:
+    
+    \begin{command}
+        \begin{minted}{latex}
+\graphicspath{{figures/}}
+% or many folders
+\graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}}
+        \end{minted}
+    \end{command}
+    After that, you can simply use \LC|\includegraphics{filename}| to include the figure.
+\end{frame}

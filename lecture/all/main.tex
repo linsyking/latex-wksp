@@ -35,6 +35,7 @@
 \setmintedinline{
 	fontsize=\footnotesize
 }
+
 \newmintinline[LC]{latex}{}
 \newmintinline[LCS]{latex}{fontsize=\scriptsize}
 \newminted[LCL]{latex}{}
@@ -97,6 +98,14 @@
 \setbeamertemplate{section in toc}[sections numbered]
 
 \hypersetup{colorlinks=true,linkcolor=purple,filecolor=magenta,urlcolor=purple}
+\AtBeginSection[]{
+    \begin{frame}{Table of Contents}
+        \small
+        \begin{multicols}{2}
+        \tableofcontents[currentsection]
+        \end{multicols}
+    \end{frame}
+}
 
 \urlstyle{same}
 
@@ -110,12 +119,8 @@
     \titlepage
 \end{frame}
 
-\begin{frame}{Table of Contents}
-    \begin{multicols}{2}
-        \tableofcontents
-    \end{multicols}
-\end{frame}
 \input{../intro/main}
+\input{../document/main}
 \input{../text/main}
 \input{../math/main}
 \input{../graphic/main}
