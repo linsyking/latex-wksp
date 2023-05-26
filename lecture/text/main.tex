@@ -308,7 +308,7 @@
     \structure{minipage} is a very useful environment for dividing pages into a grid.
     \begin{example}
         \begin{multicols}{2}
-            \inputminted[xleftmargin=1.5em]{latex}{../text/minipage.tex}
+            \inputminted{latex}{../text/minipage.tex}
         \end{multicols}
     \end{example}
 \end{frame}
@@ -316,6 +316,10 @@
 \begin{frame}
     The code above generate six minipages in a grid of 3 columns $\times$ 2 rows. Don't try to add up the width of minipages in a line for more than about \LC{0.98\linewidth} (since a minipage have a small margin on each side), or the last minipage may be on a new line. \\[0.5em]
     For each minipage, it can be seem as an independent \LaTeX\ document, where text, formulas, graphics, tables and etc. can be inserted, and most importantly, they won't affect each other. What's more, you can even use minipages in a minipage to form a multi-level nesting. \\
+\end{frame}
+
+\begin{frame}{Example}
+    \input{../text/minipage.tex}
 \end{frame}
 
 \begin{frame}[fragile]
