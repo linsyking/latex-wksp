@@ -13,12 +13,21 @@
             \multicolumn{2}{l}{\samplesymbol{backslash}{$\backslash$}}
         \end{tabular}
     \end{center}
+
+    \pause
+
     Many \LaTeX\ starters are confused with how to correctly print quotes, hyphens and dots.\\
+    \pause
     \`{} prints a left single quote, ' prints a right single quote.\\
+    \pause
     \`{}\`{} prints a left double quote, '' prints a right double quote.\\
+    \pause
     one hyphen (-) print like - \\
+    \pause
     two hyphens ({-}{-}) print like -- \\
+    \pause
     three hyphens ({-}{-}{-}) print like ---\\
+    \pause
     \samplecommand{dots} prints the dots with a correct format (\dots) instead of directly use three dots (...)
 \end{frame}
 
@@ -38,6 +47,7 @@
 \begin{frame}
     \frametitle{Basic commands about fonts}
     First, lets start with some commands that transform font types
+    \pause
     \begin{itemize}
         \item \sampletext{bf}{\bf}
         \item \sampletext{it}{\it}
@@ -47,29 +57,34 @@
         \item \sampletext{sl}{\sl}
         \item \sampletext{tt}{\tt}
     \end{itemize}
+    \pause
     Note that the commands that transform font types influence the text in the whole scope (\structure{\{...\}}) until another font type is specified. For example, how to use the first command \samplecommand{bf} is shown below\\[0.5em]
     \{\samplecommand{bf} Sample Text\}
 \end{frame}
 
 \begin{frame}[fragile]
     Sometimes we don't want to transform  all the font types, instead, we can only change the font type of some specified text.
+    \pause
     \begin{example}
         \begin{minted}{latex}
 \textbf{Sample text}
 		\end{minted}
     \end{example}
+    \pause
     There are more options for fonts.
     \begin{itemize}
         \item \sampletext{textit}{\textit}
         \item \sampletext{textsc}{\textsc}
+        \item \sampletext{texttt}{\texttt}
     \end{itemize}
+    \pause
     However, in a math environment (will be introduced later), some other commands should be used
     \begin{itemize}
         \item \samplecommand{mathbf} - $\mathbf{Sample\ Text}$
-        \item \samplecommand{mathit} - $\mathit{Sample\ Text}$
         \item \samplecommand{mathsf} - $\mathsf{Sample\ Text}$
     \end{itemize}
-    Note that the math environment doesn't include all of the font types on the previous page. More information about font types can be found \href{http://www.cnblogs.com/make217/p/6123532.html}{\color{blue}\underline{here}}.
+    \pause
+    Note that the math environment doesn't include all of the font types on the previous page. More information about font types can be found \href{http://www.cnblogs.com/make217/p/6123532.html}{here}.
 \end{frame}
 
 \begin{frame}

@@ -48,7 +48,7 @@
 \newfloat{program}{thp}{lop}
 \floatname{program}{Program}
 
-\newenvironment{warning}{\begin{center}\begin{minipage}{\textwidth}\huge \bf \color{red}}{\end{minipage}\end{center}}
+\newenvironment{warning}{\begin{center}\begin{minipage}{\textwidth}\large \bf \color{red}}{\end{minipage}\end{center}}
 \newenvironment{latexexample}{\begin{example}}{\end{example}}
 \newenvironment{command}{\begin{block}{Command}}{\end{block}}
 \newcommand{\samplebegin}[1]{\structure{\textbackslash begin}\{#1\}}
@@ -100,10 +100,10 @@
 
 \urlstyle{same}
 
-\title{Practical \LaTeX\ Workshop}
-\author{\hyperlink{https://github.com/linsyking}{Y. Xiang}, \hyperlink{https://github.com/fakefred}{Y. Yin}, \hyperlink{https://github.com/Hydraallen}{R. Wang} \hyperlink{}{B. Liu}}
+\title{Introduction to \LaTeX\  from a practical perspective}
+\author{\hyperlink{https://github.com/linsyking}{Y. Xiang}, \hyperlink{https://github.com/fakefred}{Y. Yin}, \hyperlink{https://github.com/Hydraallen}{R. Wang}, \hyperlink{https://github.com/keke1022}{B. Liu}}
 \institute{TechJI}
-\date{2023}
+\date{2023 SU}
 \begin{document}
 
 \begin{frame}
@@ -111,11 +111,34 @@
 \end{frame}
 
 \begin{frame}{Table of Contents}
-    \tableofcontents
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
 \end{frame}
 \input{../intro/main}
 \input{../text/main}
 \input{../math/main}
 \input{../graphic/main}
+
+\section*{References}
+
+\begin{frame}{References}
+    \begin{thebibliography}{9}
+        \bibitem{wikibook}
+        Wikibook. \url{https://en.wikibooks.org/wiki/LaTeX}.
+        \bibitem{overleaf}
+        Overleaf Knowledge Base. \url{https://www.overleaf.com/learn}.
+        \bibitem{techji}
+        tc-imba, zhang et al. \LaTeX\ Lecture. \url{https://github.com/SJTU-UMJI-Tech/LaTeX}.
+    \end{thebibliography}
+\end{frame}
+
+\begin{frame}{Resources}
+    \begin{itemize}
+        \item \href{https://wch.github.io/latexsheet/}{\LaTeX\  Cheet Sheet}
+        \item \href{https://www.ctan.org/}{The Comprehensive \TeX\ Archive Network}
+        \item \href{https://github.com/egeerardyn/awesome-LaTeX}{Awesome \LaTeX}
+    \end{itemize}
+\end{frame}
 
 \end{document}

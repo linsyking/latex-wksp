@@ -6,7 +6,11 @@
     \begin{block}{From Wikipedia, the free encyclopedia\footnotemark[1]}
         \LaTeX\ (lah-tekh, lah-tek or lay-tek, a shortening of Lamport \TeX) is a document preparation system. When writing, the writer uses plain text in markup tagging conventions to define the general structure of a document (such as \structure{article}, \structure{book}, and \structure{letter}), to stylize text throughout a document (such as \textbf{bold} and \textit{italic}), and to add citations\footnotemark[1] and cross-references. \medskip
 
+        \pause
+
         A \TeX\ distribution such as \TeX Live or Mik\TeX\ is used to produce an output file (such as PDF or DVI) suitable for printing or digital distribution. \medskip
+
+        \pause
 
         Within the typesetting system, its name is stylized as \LaTeX.
     \end{block}
@@ -16,29 +20,30 @@
 \end{frame}
 
 \begin{frame}{Comparison with other Typesetting Systems}
-    \begin{block}{Advantages over Micorsoft Word}
-        \begin{itemize}
+    \begin{itemize}[<+->]
+        \item Advantages over MS Word
+        \begin{itemize}[<+->]
             \item Plain text file, easy version control
             \item Wide range of packages and templates
             \item Open-source
         \end{itemize}
-    \end{block}
-    \begin{block}{Advantages over \hyperlink{https://typst.app/}{typst}}
-        \begin{itemize}
+        \item Advantages over \hyperlink{https://typst.app/}{typst}
+        \begin{itemize}[<+->]
             \item Larger community and packages
-            \item Fewer bugs
         \end{itemize}
-    \end{block}
-    However, \LaTeX also has many problems, like:
-    \begin{itemize}
-        \item Long compile time
-        \item Too many symbols and commands to remember
-        \item Bad, unclear, hard-to-understand error messages
-    \end{itemize}
+        \item Drawbacks
+        \begin{itemize}[<+->]
+            \item Long compile time
+            \item Too many symbols and commands to remember
+            \item Bad, unclear, hard-to-understand error messages
+        \end{itemize}
+    \end{itemize}    
 \end{frame}
 
 \begin{frame}{A brief History of \TeX\ and \LaTeX}
     Donald Kunuth from Stanford University is the specialist in programming art. In year 1977, he had just received his first samples from the new typesetting system of the publisher's, and its quality was so far below that of the first edition of Volume 2 that he couldn't stand it. Kunuth decided to implement a mathematical composition system by himself (since he is a computer scientist). He figured that this would take about 6 months (Ultimately, it took nearly 10 years). The system is named as \TeX, of both the meaning of Greek letters $\tau\epsilon\chi$, and ``technical ''. \medskip
+
+    \pause
 
     \LaTeX\ was created in 1983 by Leslie Lamport, when he was working at SRI. He needed to write \TeX\ macros for his own use, and thought with a little extra effort he could make a general package usable by others. Then \LaTeX\  developed rapidly and now there are thousands of packages written in \TeX\ macros available for direct usage.
 
@@ -60,6 +65,7 @@
 
 \begin{frame}{Installation of \LaTeX}
     Though there are some other distributions of \LaTeX (like Mik\TeX), \TeX Live is recommended in this workshop (or you can use Overleaf instead).
+
     We recommend beginners to use VS Code as IDE to edit \LaTeX\  files.
     See Hydraallen's \href{https://github.com/Hydraallen/Latex-vscode}{latex-vscode} for installing \TeX Live and \LaTeX\  extension for VS Code.
 \end{frame}
@@ -70,13 +76,19 @@
 
     If you've installed a full version of \TeX Live (as strongly recommended), the full \LaTeX\ documentation is already on your computer. \medskip
 
+    \pause
+
     Open the command line and input the command
 
     \begin{minted}{shell}
 texdoc <docname>
     \end{minted}
 
+    \pause
+
     You can also use the online version on \urllink{https://www.latex-project.org/help/documentation/} \medskip
+
+    \pause
 
     For example, you can use the following types for the \structure{docname}
     \begin{description}
@@ -85,6 +97,9 @@ texdoc <docname>
         \item[beamer] 	about documentclass \packagename{beamer} (used to create slides)
         \item[pgf]		about packages \packagename{tikz} and \packagename{pgf} (used to draw graphs)
     \end{description}
+
+    \pause
+
     \smallskip
     Try to \alert{texdoc} about all new things and then you'll be an expert in \LaTeX.
 \end{frame}
