@@ -306,6 +306,23 @@ To use the \LC|\multirow| command, you need to insert the package \packagename{m
     \item \LC|\cmidrule{2-3}| - Middle line that you can choose the columns to be drawn
     \item \LC|\bottomrule| - Bottom line
   \end{itemize}
+  \pause
+  \begin{example}
+    \begin{minted}{latex}
+\begin{tabular}{ccccc}
+  \toprule
+  \multirow{4}{*}{Table} & Title 1 & Title 2 & Title 3 & Title 4 \\
+  \cmidrule{2-5}
+  & \multicolumn{2}{c}{Text 1} & 
+  \multicolumn{2}{c}{\multirow{3}{*}{Text 3}} \\
+  \cmidrule{2-3}
+  & \multicolumn{2}{c}{Text 2} & \multicolumn{2}{c}{} \\
+  \cmidrule{2-3}
+  & Text 4 & Text 5 & \multicolumn{2}{c}{} \\
+  \bottomrule
+\end{tabular}
+    \end{minted}
+  \end{example}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -325,7 +342,7 @@ To use the \LC|\multirow| command, you need to insert the package \packagename{m
   \bottomrule
 \end{tabular}
 \end{latexexample}
-
+\medskip
 Just leave blank in the rest rows of \LC|\multirow|.
 
 \end{frame}
@@ -365,13 +382,13 @@ It's recommended to put the caption above the table.
 
 \begin{frame}[fragile]{Recall the Positions}
 	We usually want to place the graphs or tables just below or above the content where we mention them, but even when we type \packagename{[h]} in position, you can not ensure that it will appear at the ideal position, and there are several methods to make up for this. You can try them one by one: \medskip
-	
-	\begin{enumerate}
+	\pause
+	\begin{enumerate}[<+->]
 		\item Change \packagename{[h]} to \packagename{[!h]}
 		\item Change \packagename{[!h]} to \packagename{[!H]}
 		\item Use \LC|\newpage| to move the following content to the next page
 	\end{enumerate}\medskip
-	
+	\pause
 Usually you don't need to pay too much attention about where the figures and tables are exactly are because you can use \LC|\ref| to reference them. And the numbering of 	figures and tables will strictly follow the order of their code.
 	
 \end{frame}
